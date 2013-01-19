@@ -3,8 +3,8 @@ console-serial
 
 Debian/Ubuntu package which automatically enables a login console on a serial port.
 
-This package spins up getty to allow login on serial console on ttyS0.
-Currently, it installs an upstart service that spins up getty on /dev/ttyS0.
+This package spins up getty to allow login on serial console on ttyS1.
+Currently, it installs an upstart service that spins up getty on /dev/ttyS1.
 Install it and it does the rest.
 
 Many servers provide access to a virtual serial port that can be accessed over

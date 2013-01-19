@@ -13,4 +13,4 @@
 	dh $@ 
 
 override_dh_auto_install:
-	cp -a etc debian/console-ttys0
+	cp -a etc debian/console-ttys1
