@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# © Copyright 2011 Carl N. Baldwin
+#
+# Confidential computer software. Valid license from Carl Baldwin required for
+# possession, use or copying.
+
+name="console-ttys0"
+version="1.0"
+
+if ! which debuild > /dev/null
+then
+    echo >&2 "debuild is not installed."
+    echo >&2 "    sudo apt-get install devscripts"
+    exit
+fi
+
+basedir=${name}-${version}
+
+if [ -e $basedir ]
+then
+    echo >&2 -n "$basedir already exists.  Delete it?  "
+    read answer
+    case $answer in
+    Y*|y*) rm -rf $basedir ;;
+
+    *)
+        echo >&2 "Aborting!"
+        exit 1
+    ;;
+    esac
+fi
+
+archive=${name}_${version}.orig.tar.gz
+
+git archive --prefix=$basedir/ --output $archive HEAD
+tar xzvf $archive
+cd $basedir && debuild -us -uc
