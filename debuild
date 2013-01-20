@@ -35,4 +35,4 @@ archive=${name}_${version}.orig.tar.gz
 
 git archive --prefix=$basedir/ --output $archive HEAD
 tar xzvf $archive
-cd $basedir && debuild -us -uc
+cd $basedir && debuild
