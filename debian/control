@@ -3,13 +3,12 @@ Section: admin
 Priority: extra
 Maintainer: Carl Baldwin <carl@ecbaldwin.net>
 Build-Depends: debhelper (>= 8.0.0)
-Depends: util-linux
 Standards-Version: 3.9.3
 Homepage: https://github.com/ecbaldwin/console-serial
 
 Package: console-ttys0
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}
 Description: Enables login on the serial console on ttyS0
  This package spins up getty to allow login on serial console on ttyS0.
  Currently, it installs an upstart service that spins up getty on /dev/ttyS0.
